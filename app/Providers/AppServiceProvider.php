@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Database\Connectors\NeonPostgresConnector;
+use Illuminate\Database\Connection;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Registra o connector customizado para Neon
+        $this->app->bind('db.connector.pgsql', function ($app) {
+            return new NeonPostgresConnector();
+        });
     }
 
     /**
