@@ -13,8 +13,8 @@ class Receita extends Model
         'titulo',
         'descricao',
         'ingredientes',
-        'modo_preparo',
-        'tempo_preparo',
+        'modoPreparo',
+        'tempoPreparo',
         'porcoes',
         'categoria',
         'imagem',
@@ -22,8 +22,7 @@ class Receita extends Model
 
     protected $casts = [
         'ingredientes' => 'array',
-        'modo_preparo' => 'array',
-        'tempo_preparo' => 'integer',
+        'tempoPreparo' => 'integer',
         'porcoes' => 'integer',
     ];
 }

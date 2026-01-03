@@ -98,8 +98,8 @@
                 @endif
 
                 <div class="receita-meta">
-                    @if($receita->tempo_preparo)
-                        <span>⏱️ {{ $receita->tempo_preparo }} min</span>
+                    @if($receita->tempoPreparo)
+                        <span>⏱️ {{ $receita->tempoPreparo }} min</span>
                     @endif
                     @if($receita->porcoes)
                         <span>🍽️ {{ $receita->porcoes }} porções</span>

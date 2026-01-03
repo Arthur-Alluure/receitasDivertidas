@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descricao')->nullable();
             $table->json('ingredientes'); // Array de ingredientes
-            $table->text('modoPreparo'); // Array de passos
-            $table->integer('tempo_preparo')->nullable()->comment('em minutos');
+            $table->text('modoPreparo'); 
+            $table->integer('tempoPreparo')->nullable()->comment('em minutos');
             $table->integer('porcoes')->nullable();
             $table->string('categoria')->nullable();
             $table->string('imagem')->nullable();

@@ -117,9 +117,9 @@
         </div>
 
         <div class="form-group">
-            <label for="tempo_preparo">Tempo de Preparo (minutos)</label>
-            <input type="number" id="tempo_preparo" name="tempo_preparo" value="{{ old('tempo_preparo') }}" min="1">
-            @error('tempo_preparo')
+            <label for="tempoPreparo">Tempo de Preparo (minutos)</label>
+            <input type="number" id="tempoPreparo" name="tempoPreparo" value="{{ old('tempoPreparo') }}" min="1">
+            @error('tempoPreparo')
                 <div class="error">{{ $message }}</div>
             @enderror
         </div>
@@ -143,13 +143,11 @@
         </div>
 
         <div class="form-group">
-            <label>Modo de Preparo *</label>
-            <div id="preparo-list" class="dynamic-list">
-                <div class="dynamic-item">
-                    <input type="text" name="modo_preparo[]" placeholder="Ex: Misture os ingredientes secos" required>
-                </div>
-            </div>
-            <button type="button" class="btn btn-add" onclick="addPasso()">+ Adicionar Passo</button>
+            <label for="modoPreparo">Modo de Preparo *</label>
+            <textarea id="modoPreparo" name="modoPreparo" rows="8" required placeholder="Descreva o passo a passo do preparo...">{{ old('modoPreparo') }}</textarea>
+            @error('modoPreparo')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
@@ -174,17 +172,6 @@
         item.className = 'dynamic-item';
         item.innerHTML = `
             <input type="text" name="ingredientes[]" placeholder="Ex: 2 xícaras de farinha" required>
-            <button type="button" class="btn btn-remove" onclick="this.parentElement.remove()">×</button>
-        `;
-        list.appendChild(item);
-    }
-
-    function addPasso() {
-        const list = document.getElementById('preparo-list');
-        const item = document.createElement('div');
-        item.className = 'dynamic-item';
-        item.innerHTML = `
-            <input type="text" name="modo_preparo[]" placeholder="Ex: Misture os ingredientes secos" required>
             <button type="button" class="btn btn-remove" onclick="this.parentElement.remove()">×</button>
         `;
         list.appendChild(item);

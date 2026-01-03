@@ -85,8 +85,8 @@
         @if($receita->categoria)
             <span>📂 {{ $receita->categoria }}</span>
         @endif
-        @if($receita->tempo_preparo)
-            <span>⏱️ {{ $receita->tempo_preparo }} minutos</span>
+        @if($receita->tempoPreparo)
+            <span>⏱️ {{ $receita->tempoPreparo }} minutos</span>
         @endif
         @if($receita->porcoes)
             <span>🍽️ {{ $receita->porcoes }} porções</span>
@@ -109,13 +109,7 @@
 
 <div class="receita-section">
     <h3>👨‍🍳 Modo de Preparo</h3>
-    <ol class="preparo-list">
-        @foreach($receita->modo_preparo as $index => $passo)
-            <li>
-                <strong>Passo {{ $index + 1 }}:</strong> {{ $passo }}
-            </li>
-        @endforeach
-    </ol>
+    <div style="padding: 15px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #ff6b6b; white-space: pre-wrap;">{{ $receita->modoPreparo }}</div>
 </div>
 
 <div class="actions">
