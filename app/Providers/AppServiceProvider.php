@@ -30,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Desabilita prepared statements para evitar cache de planos no PostgreSQL
+        if (config('database.default') === 'pgsql') {
+            \DB::connection()->getPdo()->setAttribute(\PDO::ATTR_EMULATE_PREPARES, true);
+        }
     }
 }
