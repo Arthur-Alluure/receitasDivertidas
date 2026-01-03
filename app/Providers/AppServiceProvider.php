@@ -17,6 +17,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('db.connector.pgsql', function ($app) {
             return new NeonPostgresConnector();
         });
+
+        // Registra o Repository Pattern
+        $this->app->bind(
+            \App\Repositories\ReceitaRepositoryInterface::class,
+            \App\Repositories\ReceitaRepository::class
+        );
     }
 
     /**
